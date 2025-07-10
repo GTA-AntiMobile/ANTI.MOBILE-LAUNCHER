@@ -1,0 +1,8 @@
+version: '3.8'
+services:
+  launcher:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ~/.m2:/root/.m2  # Optional: speeds up repeated builds locally
