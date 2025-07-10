@@ -1,7 +1,5 @@
 package eric.antimobile.launcher.ui;
 
-
-
 import eric.antimobile.launcher.entity.Background;
 import eric.antimobile.launcher.entity.Config;
 import java.io.File;
@@ -23,34 +21,28 @@ import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
-
-
 public class MainLauncher extends javax.swing.JFrame {
+
     public static MainLauncher frame;
- 
-    
 
     private JFileChooser fileChooser = new JFileChooser();
     private String selectPatch;
-    
-    
-    
 
     public MainLauncher() {
 
         Background bg = new Background(Config.getBgPatch());
         bg.applyTo(this);
-       
-        
+
         frame = this;
-        
+
         setUndecorated(true);
 
         initComponents();
 
+        // Resize image to btnLogin
+        resizeLoginButtonIcon();
         Properties(this);
-        
-        
+
         Data.createData(txtUsername, lblFolder);
         Data.loadData(txtUsername, lblFolder);
 
@@ -222,18 +214,18 @@ public class MainLauncher extends javax.swing.JFrame {
                                 .addGap(10, 10, 10)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblFolder, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(28, 28, 28))
+                                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(56, 56, 56))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btnSettings)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnMinimize, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, 0)
                         .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(147, 147, 147))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -243,12 +235,12 @@ public class MainLauncher extends javax.swing.JFrame {
                     .addComponent(btnMinimize, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSettings))
-                .addGap(365, 365, 365)
+                .addGap(247, 247, 247)
+                .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(68, 68, 68)
                 .addComponent(lblFolder)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnLogin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnInstall)
@@ -283,12 +275,11 @@ public class MainLauncher extends javax.swing.JFrame {
 
     private void lblFolderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblFolderMouseClicked
         // TODO add your handling code here:
-        
+
         // - chỉnh sửa Choose File (Chọn thẳng đến file samp.exe và lấy đường dẫn)
         // - build JDialog thông báo lỗi riêng
         // - tối ưu hoá lưu trữ đường dần file và tên nhân vật
         // - tối ưu hoá file Login - re-build code
-        
         fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         int x = fileChooser.showDialog(null, "Select Folder");
         if (x == JFileChooser.APPROVE_OPTION) {
@@ -323,7 +314,7 @@ public class MainLauncher extends javax.swing.JFrame {
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
         String userName = txtUsername.getText();
-        if (txtUsername.equals("Nhập tên nhân vật.") && txtUsername.equals("")){
+        if (txtUsername.equals("Nhập tên nhân vật.") && txtUsername.equals("")) {
             txtUsername.setForeground(Color.BLACK);
         }
         String sampPath = lblFolder.getText(); // hoặc biến bạn dùng để lưu đường dẫn thư mục
@@ -373,7 +364,7 @@ public class MainLauncher extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-           
+
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -406,6 +397,13 @@ public class MainLauncher extends javax.swing.JFrame {
                 new MainLauncher().setVisible(true);
             }
         });
+    }
+
+    private void resizeLoginButtonIcon() {
+        ImageIcon originalIcon = new ImageIcon(getClass().getResource("/eric/antimobile/launcher/icon/nutdangnhap.png"));
+        Image scaledImage = originalIcon.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH); // Adjust size
+        btnLogin.setIcon(new ImageIcon(scaledImage));
+        btnLogin.setText("");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -1,1 +1,40 @@
-* target
+# Java build
+*.class
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+
+# Eclipse/NetBeans/IntelliJ project files
+*.log
+*.swp
+*.iml
+*.ipr
+*.iws
+.idea/
+*.nb-gradle/
+nbproject/private/
+.buildpath
+.project
+.settings/
+
+# VS Code
+.vscode/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Cygwin or Git Bash temporary files
+*.bak
+*.tmp
+
+# JetBrains / NetBeans caches
+nbbuild/
+nbdist/
