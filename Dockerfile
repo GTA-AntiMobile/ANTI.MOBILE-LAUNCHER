@@ -2,12 +2,12 @@
 FROM yannoff/maven:3.8-openjdk-19 AS build
 WORKDIR /app
 
-# Copy all project files to Docker
+# Copy everything including your external JAR
 COPY . .
 
 # Install custom dependency into local Maven repo
 RUN mvn install:install-file \
-    -Dfile=target/ANTI.MOBILE-LAUNCHER-Anti-Mobile_Launcher.jar \
+    -Dfile=ANTI.MOBILE-LAUNCHER-Anti-Mobile_Launcher.jar \
     -DgroupId=com.samp \
     -DartifactId=LauncherTest \
     -Dversion=1.0-SNAPSHOT \
@@ -16,5 +16,16 @@ RUN mvn install:install-file \
 # Now package your app
 RUN mvn clean package -DskipTests
 
-# Replace with your actual JAR name after build
-CMD ["java", "-jar", "target/ANTI.MOBILE-LAUNCHER-Anti-Mobile_Launcher.jar"]
+# Runtime stage
+FROM openjdk:19-slim
+
+RUN apt-get update && \
+    apt-get install -y libfreetype6 fontconfig && \
+    rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+# Copy your built JAR from the build stage
+COPY --from=build /app/target/*.jar app.jar
+
+CMD ["java", "-jar", "app.jar"]
