@@ -8,9 +8,6 @@ WORKDIR /app
 # Copy full source and dependencies
 COPY . .
 
-# Copy the external JAR into lib/
-RUN mkdir -p lib && cp ANTI.MOBILE-LAUNCHER-Anti-Mobile_Launcher.jar lib/
-
 # Build the app (no need for install-file now)
 RUN mvn clean package -DskipTests
 
