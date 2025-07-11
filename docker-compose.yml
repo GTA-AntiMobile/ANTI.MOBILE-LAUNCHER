@@ -4,5 +4,3 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    volumes:
-      - ~/.m2:/root/.m2  # Optional: speeds up repeated builds locally

@@ -1,0 +1,17 @@
+{
+    "name": "Java App",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": "."
+    },
+    "settings": {
+        "java.home": "/usr/local/openjdk-19"
+    },
+    "extensions": [
+        "vscjava.vscode-java-pack"
+    ],
+    "forwardPorts": [
+        8080
+    ],
+    "workspaceFolder": "/app"
+}
