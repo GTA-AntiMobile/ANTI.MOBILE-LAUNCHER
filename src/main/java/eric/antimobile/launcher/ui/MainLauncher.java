@@ -49,7 +49,8 @@ public class MainLauncher extends javax.swing.JFrame {
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         btnLogin = new javax.swing.JButton();
@@ -74,7 +75,8 @@ public class MainLauncher extends javax.swing.JFrame {
         });
 
         btnLogin.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        btnLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/eric/antimobile/launcher/icon/nutdangnhap.png"))); // NOI18N
+        btnLogin.setIcon(
+                new javax.swing.ImageIcon(getClass().getResource("/eric/antimobile/launcher/icon/nutdangnhap.png"))); // NOI18N
         btnLogin.setText("enter");
         btnLogin.setContentAreaFilled(false);
         btnLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -100,6 +102,35 @@ public class MainLauncher extends javax.swing.JFrame {
             }
         });
 
+        txtPassword = new javax.swing.JPasswordField();
+        txtPassword.setBackground(new java.awt.Color(204, 204, 255));
+        txtPassword.setFont(new java.awt.Font("Arial", 3, 18));
+        txtPassword.setForeground(new java.awt.Color(153, 153, 153));
+        txtPassword.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtPassword.setText("Nhập mật khẩu.");
+        txtPassword.setBorder(null);
+        txtPassword.setCaretColor(new java.awt.Color(0, 102, 102));
+        txtPassword.setEchoChar((char) 0);
+        txtPassword.addFocusListener(new java.awt.event.FocusAdapter() {
+            @Override
+            public void focusGained(java.awt.event.FocusEvent e) {
+                if (String.valueOf(txtPassword.getPassword()).equals("Nhập mật khẩu.")) {
+                    txtPassword.setText("");
+                    txtPassword.setEchoChar('•');
+                    txtPassword.setForeground(Color.BLACK);
+                }
+            }
+
+            @Override
+            public void focusLost(java.awt.event.FocusEvent e) {
+                if (String.valueOf(txtPassword.getPassword()).isEmpty()) {
+                    txtPassword.setText("Nhập mật khẩu.");
+                    txtPassword.setEchoChar((char) 0);
+                    txtPassword.setForeground(new Color(153, 153, 153));
+                }
+            }
+        });
+
         btnMinimize.setFont(new java.awt.Font("Palatino Linotype", 1, 24)); // NOI18N
         btnMinimize.setForeground(new java.awt.Color(255, 255, 255));
         btnMinimize.setText("--");
@@ -110,6 +141,7 @@ public class MainLauncher extends javax.swing.JFrame {
         btnMinimize.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         btnMinimize.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
         btnMinimize.addActionListener(new java.awt.event.ActionListener() {
+
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMinimizeActionPerformed(evt);
             }
@@ -142,7 +174,8 @@ public class MainLauncher extends javax.swing.JFrame {
 
         btnInstall.setFont(new java.awt.Font("Segoe UI Semibold", 2, 14)); // NOI18N
         btnInstall.setForeground(new java.awt.Color(0, 255, 0));
-        btnInstall.setIcon(new javax.swing.ImageIcon(getClass().getResource("/eric/antimobile/launcher/icon/install_logo1.png"))); // NOI18N
+        btnInstall.setIcon(
+                new javax.swing.ImageIcon(getClass().getResource("/eric/antimobile/launcher/icon/install_logo1.png"))); // NOI18N
         btnInstall.setText("Install");
         btnInstall.setContentAreaFilled(false);
         btnInstall.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -166,19 +199,23 @@ public class MainLauncher extends javax.swing.JFrame {
         });
 
         tglbtnMic.setBackground(new Color(0, 0, 0, 0));
-        tglbtnMic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/eric/antimobile/launcher/icon/microphone1_1.png"))); // NOI18N
+        tglbtnMic.setIcon(
+                new javax.swing.ImageIcon(getClass().getResource("/eric/antimobile/launcher/icon/microphone1_1.png"))); // NOI18N
         tglbtnMic.setBorder(null);
-        tglbtnMic.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/eric/antimobile/launcher/icon/mute-microphone1.png"))); // NOI18N
+        tglbtnMic.setSelectedIcon(new javax.swing.ImageIcon(
+                getClass().getResource("/eric/antimobile/launcher/icon/mute-microphone1.png"))); // NOI18N
         tglbtnMic.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tglbtnMicActionPerformed(evt);
             }
         });
 
-        tglbtnVol.setBackground(new Color(0,0,0,0));
-        tglbtnVol.setIcon(new javax.swing.ImageIcon(getClass().getResource("/eric/antimobile/launcher/icon/volume-up1.png"))); // NOI18N
+        tglbtnVol.setBackground(new Color(0, 0, 0, 0));
+        tglbtnVol.setIcon(
+                new javax.swing.ImageIcon(getClass().getResource("/eric/antimobile/launcher/icon/volume-up1.png"))); // NOI18N
         tglbtnVol.setBorder(null);
-        tglbtnVol.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/eric/antimobile/launcher/icon/mute1.png"))); // NOI18N
+        tglbtnVol.setSelectedIcon(
+                new javax.swing.ImageIcon(getClass().getResource("/eric/antimobile/launcher/icon/mute1.png"))); // NOI18N
         tglbtnVol.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tglbtnVolActionPerformed(evt);
@@ -195,85 +232,113 @@ public class MainLauncher extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(lblEric, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnInstall)
-                                .addGap(171, 171, 171)
-                                .addComponent(tglbtnMic)
-                                .addGap(10, 10, 10)
-                                .addComponent(tglbtnVol))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(lblEric, javax.swing.GroupLayout.PREFERRED_SIZE, 150,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblFolder, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(56, 56, 56))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnSettings)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnMinimize, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(147, 147, 147))))
-        );
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout
+                                                .createSequentialGroup()
+                                                .addGroup(layout
+                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addGroup(layout.createSequentialGroup()
+                                                                .addComponent(btnInstall)
+                                                                .addGap(171, 171, 171)
+                                                                .addComponent(tglbtnMic)
+                                                                .addGap(10, 10, 10)
+                                                                .addComponent(tglbtnVol))
+                                                        .addGroup(layout.createSequentialGroup()
+                                                                .addGap(10, 10, 10)
+                                                                .addGroup(layout.createParallelGroup(
+                                                                        javax.swing.GroupLayout.Alignment.LEADING)
+                                                                        .addComponent(lblFolder,
+                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                350,
+                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                        .addComponent(txtUsername,
+                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                310,
+                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                        .addComponent(txtPassword,
+                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                310,
+                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)))) // Thêm
+                                                                                                                           // dòng
+                                                                                                                           // này
+                                                .addGap(56, 56, 56))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout
+                                                .createSequentialGroup()
+                                                .addComponent(btnSettings)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btnMinimize, javax.swing.GroupLayout.PREFERRED_SIZE, 30,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(0, 0, 0)
+                                                .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 30,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addContainerGap())
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
+                                                layout.createSequentialGroup()
+                                                        .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addGap(147, 147, 147)))));
+
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnMinimize, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSettings))
-                .addGap(247, 247, 247)
-                .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(68, 68, 68)
-                .addComponent(lblFolder)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnInstall)
-                    .addComponent(tglbtnMic)
-                    .addComponent(tglbtnVol))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblEric, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(btnMinimize, javax.swing.GroupLayout.PREFERRED_SIZE, 20,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 20,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnSettings))
+                                .addGap(247, 247, 247)
+                                .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 50,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(68, 68, 68)
+                                .addComponent(lblFolder)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 50,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10)
+                                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 50,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE) // Thêm dòng này
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(btnInstall)
+                                        .addComponent(tglbtnMic)
+                                        .addComponent(tglbtnVol))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED,
+                                        javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblEric, javax.swing.GroupLayout.PREFERRED_SIZE, 20,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tglbtnMicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tglbtnMicActionPerformed
+    private void tglbtnMicActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_tglbtnMicActionPerformed
         // TODO add your handling code here:
-//        if (tglbtnMic.isSelected()){
-//            Microphone.disableMicrophone();
-//        } else {
-//            Microphone.enableMicrophone();
-//        }
-    }//GEN-LAST:event_tglbtnMicActionPerformed
+        // if (tglbtnMic.isSelected()){
+        // Microphone.disableMicrophone();
+        // } else {
+        // Microphone.enableMicrophone();
+        // }
+    }// GEN-LAST:event_tglbtnMicActionPerformed
 
-    private void lblEricMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEricMouseClicked
+    private void lblEricMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblEricMouseClicked
         // TODO add your handling code here:
         Link.Eric();
-    }//GEN-LAST:event_lblEricMouseClicked
+    }// GEN-LAST:event_lblEricMouseClicked
 
-    private void btnInstallActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInstallActionPerformed
+    private void btnInstallActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnInstallActionPerformed
         // TODO add your handling code here:
         new InstallLauncher(this, true).setVisible(true);
-    }//GEN-LAST:event_btnInstallActionPerformed
+    }// GEN-LAST:event_btnInstallActionPerformed
 
-    private void lblFolderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblFolderMouseClicked
+    private void lblFolderMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblFolderMouseClicked
         // TODO add your handling code here:
 
         // - chỉnh sửa Choose File (Chọn thẳng đến file samp.exe và lấy đường dẫn)
@@ -287,59 +352,71 @@ public class MainLauncher extends javax.swing.JFrame {
             selectPatch = f.getAbsolutePath();
             lblFolder.setText(selectPatch);
         }
-    }//GEN-LAST:event_lblFolderMouseClicked
+    }// GEN-LAST:event_lblFolderMouseClicked
 
-    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnExitActionPerformed
         // TODO add your handling code here:
         System.exit(0);
-//        frame.addWindowListener(new WindowAdapter() {
-//        @Override
-//        public void windowClosing(WindowEvent e) {
-//            frame.setVisible(false);
-//            frame.dispose(); // <-- tùy chọn, giúp tránh lỗi trên vài máy Windows
-//        }
-//        });
+        // frame.addWindowListener(new WindowAdapter() {
+        // @Override
+        // public void windowClosing(WindowEvent e) {
+        // frame.setVisible(false);
+        // frame.dispose(); // <-- tùy chọn, giúp tránh lỗi trên vài máy Windows
+        // }
+        // });
 
-    }//GEN-LAST:event_btnExitActionPerformed
+    }// GEN-LAST:event_btnExitActionPerformed
 
-    private void btnMinimizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMinimizeActionPerformed
+    private void btnMinimizeActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnMinimizeActionPerformed
         // TODO add your handling code here:
         this.setExtendedState(JFrame.ICONIFIED);
-    }//GEN-LAST:event_btnMinimizeActionPerformed
+    }// GEN-LAST:event_btnMinimizeActionPerformed
 
-    private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
-        // TODO add your handling code here:   
-    }//GEN-LAST:event_txtUsernameActionPerformed
-
-    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+    private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtUsernameActionPerformed
         // TODO add your handling code here:
+    }// GEN-LAST:event_txtUsernameActionPerformed
+
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnLoginActionPerformed
         String userName = txtUsername.getText();
-        if (txtUsername.equals("Nhập tên nhân vật.") && txtUsername.equals("")) {
+        String password = String.valueOf(txtPassword.getPassword());
+        if (userName.equals("Nhập tên nhân vật.") || userName.isEmpty()) {
             txtUsername.setForeground(Color.BLACK);
+            javax.swing.JOptionPane.showMessageDialog(this, "Vui lòng nhập tên nhân vật!");
+            return;
         }
-        String sampPath = lblFolder.getText(); // hoặc biến bạn dùng để lưu đường dẫn thư mục
+        if (password.equals("Nhập mật khẩu.") || password.isEmpty()) {
+            txtPassword.setForeground(Color.BLACK);
+            javax.swing.JOptionPane.showMessageDialog(this, "Vui lòng nhập mật khẩu!");
+            return;
+        }
         try {
-            Login.performLogin(sampPath, txtUsername, lblFolder, this);
-        } catch (IOException ex) {
-            Logger.getLogger(MainLauncher.class.getName()).log(Level.SEVERE, null, ex);
+            boolean success = eric.antimobile.launcher.entity.JDBC.checkLogin(userName, password);
+            if (success) {
+                javax.swing.JOptionPane.showMessageDialog(this, "Đăng nhập thành công!");
+                // Thực hiện các bước tiếp theo ở đây
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(this, "Sai tên hoặc mật khẩu!");
+            }
+        } catch (Exception ex) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Lỗi kết nối database!");
         }
-    }//GEN-LAST:event_btnLoginActionPerformed
+    }// GEN-LAST:event_btnLoginActionPerformed
 
-    private void tglbtnVolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tglbtnVolActionPerformed
+    private void tglbtnVolActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_tglbtnVolActionPerformed
         // TODO add your handling code here:
-//        if (tglbtnVol.isSelected()) {
-//            Speaker.muteOutput();
-//        } else {
-//            Speaker.unmuteOutput();
-//        }
-    }//GEN-LAST:event_tglbtnVolActionPerformed
+        // if (tglbtnVol.isSelected()) {
+        // Speaker.muteOutput();
+        // } else {
+        // Speaker.unmuteOutput();
+        // }
+    }// GEN-LAST:event_tglbtnVolActionPerformed
 
-    private void btnSettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSettingsActionPerformed
+    private void btnSettingsActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnSettingsActionPerformed
         // TODO add your handling code here:
         new SettingsLauncher(this, true).setVisible(true);
-    }//GEN-LAST:event_btnSettingsActionPerformed
+    }// GEN-LAST:event_btnSettingsActionPerformed
 
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {// GEN-FIRST:event_formWindowOpened
         // Sự kiện focus
         txtUsername.addFocusListener(new java.awt.event.FocusAdapter() {
             @Override
@@ -358,7 +435,7 @@ public class MainLauncher extends javax.swing.JFrame {
                 }
             }
         });
-    }//GEN-LAST:event_formWindowOpened
+    }// GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments
@@ -366,9 +443,13 @@ public class MainLauncher extends javax.swing.JFrame {
     public static void main(String args[]) {
 
         /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+        // <editor-fold defaultstate="collapsed" desc=" Look and feel setting code
+        // (optional) ">
+        /*
+         * If Nimbus (introduced in Java SE 6) is not available, stay with the default
+         * look and feel.
+         * For details see
+         * http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -378,18 +459,22 @@ public class MainLauncher extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MainLauncher.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainLauncher.class.getName()).log(java.util.logging.Level.SEVERE, null,
+                    ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MainLauncher.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainLauncher.class.getName()).log(java.util.logging.Level.SEVERE, null,
+                    ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MainLauncher.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainLauncher.class.getName()).log(java.util.logging.Level.SEVERE, null,
+                    ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MainLauncher.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainLauncher.class.getName()).log(java.util.logging.Level.SEVERE, null,
+                    ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
+        // </editor-fold>
+        // </editor-fold>
+        // </editor-fold>
+        // </editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -400,7 +485,8 @@ public class MainLauncher extends javax.swing.JFrame {
     }
 
     private void resizeLoginButtonIcon() {
-        ImageIcon originalIcon = new ImageIcon(getClass().getResource("/eric/antimobile/launcher/icon/nutdangnhap.png"));
+        ImageIcon originalIcon = new ImageIcon(
+                getClass().getResource("/eric/antimobile/launcher/icon/nutdangnhap.png"));
         Image scaledImage = originalIcon.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH); // Adjust size
         btnLogin.setIcon(new ImageIcon(scaledImage));
         btnLogin.setText("");
@@ -417,5 +503,7 @@ public class MainLauncher extends javax.swing.JFrame {
     private javax.swing.JToggleButton tglbtnMic;
     private javax.swing.JToggleButton tglbtnVol;
     private javax.swing.JTextField txtUsername;
+    private javax.swing.JPasswordField txtPassword;
+
     // End of variables declaration//GEN-END:variables
 }
