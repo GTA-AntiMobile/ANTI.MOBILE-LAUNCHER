@@ -6,19 +6,10 @@ import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import eric.antimobile.launcher.entity.Data;
-import eric.antimobile.launcher.entity.ImageButton;
 import eric.antimobile.launcher.entity.Link;
-import eric.antimobile.launcher.entity.Login;
-import eric.antimobile.launcher.entity.Microphone;
 import static eric.antimobile.launcher.entity.Properties1.Properties;
-import eric.antimobile.launcher.entity.Speaker;
 import java.awt.Color;
-import java.awt.FlowLayout;
 import java.awt.Image;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
 public class MainLauncher extends javax.swing.JFrame {
