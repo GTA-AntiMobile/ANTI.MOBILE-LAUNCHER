@@ -5,6 +5,7 @@
 package eric.antimobile.launcher.ui;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +17,10 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.Mixer;
 import javax.sound.sampled.SourceDataLine;
 import javax.sound.sampled.TargetDataLine;
+import javax.swing.BorderFactory;
+
 import javax.swing.JOptionPane;
+
 import javax.swing.SwingUtilities;
 
 /**
@@ -24,6 +28,11 @@ import javax.swing.SwingUtilities;
  * @author Eric
  */
 public class SettingsLauncher extends javax.swing.JDialog {
+// 🎨 Màu chữ (xanh ngọc sáng)
+
+    Color textColor = new Color(47, 50, 57);   // #2F3239
+// 🎨 Màu nền nút (xám đậm/đen)
+    Color buttonBg = new Color(58, 57, 63);    // #3A393F
 
     private List<Mixer.Info> inputMixers = new ArrayList<>();
     private List<Mixer.Info> outputMixers = new ArrayList<>();
@@ -38,8 +47,20 @@ public class SettingsLauncher extends javax.swing.JDialog {
         super(parent, modal);
         setUndecorated(true);
         initComponents();
+//         FlatSVGIcon micIcon = new FlatSVGIcon("icons/mic.svg", 24, 24);
+        // 🎨 Áp dụng style cho UI
+        UIStyleUtils.styleButton(btnMicro);
+        UIStyleUtils.styleButton(btnSpeaker);
+        UIStyleUtils.styleButton(btnTest);
+        btnClose.setForeground(UIStyleUtils.TEXT_COLOR);
+        btnClose.setBackground(UIStyleUtils.BG_COLOR);
+        UIStyleUtils.styleCombo(cboChooseMicro);
+        UIStyleUtils.styleCombo(cboChooseSpeaker);
+
+        UIStyleUtils.styleProgress(pgbCheck);
         init();
         loadAudioDevices();
+
     }
 
     void init() {
@@ -309,7 +330,7 @@ public class SettingsLauncher extends javax.swing.JDialog {
         pgbCheck = new javax.swing.JProgressBar();
         btnMicro = new javax.swing.JButton();
         btnSpeaker = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnTest = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
@@ -320,11 +341,17 @@ public class SettingsLauncher extends javax.swing.JDialog {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("Cài đặt");
 
         cboChooseMicro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cboChooseMicro.setMinimumSize(new java.awt.Dimension(72, 30));
+        cboChooseMicro.setName(""); // NOI18N
+        cboChooseMicro.setPreferredSize(new java.awt.Dimension(250, 30));
 
         cboChooseSpeaker.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cboChooseSpeaker.setMinimumSize(new java.awt.Dimension(72, 30));
+        cboChooseSpeaker.setPreferredSize(new java.awt.Dimension(250, 30));
 
         pgbCheck.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -342,10 +369,10 @@ public class SettingsLauncher extends javax.swing.JDialog {
             }
         });
 
-        jButton1.setText("Mẫu ghi");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnTest.setText("Mẫu ghi");
+        btnTest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnTestActionPerformed(evt);
             }
         });
 
@@ -357,37 +384,36 @@ public class SettingsLauncher extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(cboChooseMicro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cboChooseMicro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(btnMicro)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnSpeaker)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnTest)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnMicro)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
-                        .addComponent(btnSpeaker)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton1)
-                        .addGap(260, 260, 260))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(cboChooseSpeaker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(pgbCheck, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cboChooseSpeaker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pgbCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 22, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(cboChooseMicro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cboChooseMicro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cboChooseSpeaker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnSpeaker, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnMicro, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(btnTest, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(pgbCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(67, Short.MAX_VALUE))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -395,14 +421,13 @@ public class SettingsLauncher extends javax.swing.JDialog {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnClose)))
-                .addContainerGap())
+                .addGap(19, 19, 19)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnClose))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -413,7 +438,7 @@ public class SettingsLauncher extends javax.swing.JDialog {
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(74, Short.MAX_VALUE))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
         pack();
@@ -429,11 +454,12 @@ public class SettingsLauncher extends javax.swing.JDialog {
         // TODO add your handling code here:
         if (micRunning) {
             stopMic();
-            btnMicro.setBackground(Color.white);
+//            btnMicro.setBackground(Color.white);
 
         } else {
             startMic();
-             btnMicro.setBackground(Color.red);
+            btnMicro.setText("⏺");
+//            btnMicro.setBackground(Color.red);
 
         }
     }//GEN-LAST:event_btnMicroActionPerformed
@@ -445,7 +471,7 @@ public class SettingsLauncher extends javax.swing.JDialog {
 
     }//GEN-LAST:event_btnSpeakerActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTestActionPerformed
         recordedFormat = new AudioFormat(44100.0f, 16, 1, true, false);
         lastAudioBuffer = new byte[44100 * 2];
         for (int i = 0; i < 44100; i++) {
@@ -456,7 +482,7 @@ public class SettingsLauncher extends javax.swing.JDialog {
         playAudioWithLevel(lastAudioBuffer, recordedFormat, null); // phát qua mixer mặc định
 
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnTestActionPerformed
 
     /**
      * @param args the command line arguments
@@ -513,9 +539,9 @@ public class SettingsLauncher extends javax.swing.JDialog {
     private javax.swing.JButton btnClose;
     private javax.swing.JButton btnMicro;
     private javax.swing.JButton btnSpeaker;
+    private javax.swing.JButton btnTest;
     private javax.swing.JComboBox<String> cboChooseMicro;
     private javax.swing.JComboBox<String> cboChooseSpeaker;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JProgressBar pgbCheck;
